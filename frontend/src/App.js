@@ -7,7 +7,13 @@ export const App = () => {
       <label htmlFor="name">Name</label>
       <input type="text" id="name" />
       <label htmlFor="date">When does it take place?</label>
-      <input type="date" id="date" />
+      <input
+        type="date"
+        id="date"
+        onChange={(event) => {
+          console.log(event);
+        }}
+      />
       <label htmlFor="opens">Opens</label>
       <input type="time" id="opens" />
       <label htmlFor="closes">Closes</label>
@@ -18,6 +24,6 @@ export const App = () => {
       <input type="text" id="description" />
       <button type="submit">Add market</button>
     </section>
-    //dont have an account? sign up here! (link to register)
+    //dont have an account? sign up here! (link to register, with routes)
   );
 };
