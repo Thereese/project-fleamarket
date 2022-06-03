@@ -18,5 +18,6 @@ export const App = () => {
       <input type="text" id="description" />
       <button type="submit">Add market</button>
     </section>
+    //dont have an account? sign up here! (link to register)
   );
 };

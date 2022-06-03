@@ -45,6 +45,14 @@ const MarketSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  starttime: {
+    type: String,
+    required: true,
+  },
+  endtime: {
+    type: String,
+    required: true,
+  },
   location: {
     type: String,
     required: true,
@@ -148,7 +156,7 @@ const authenticateUser = async (req, res, next) => {
 
 //POST A NEW FLEAMARKET (OUTSIDE REQUIRED USER FOR NOW)
 app.post("/markets", async (req, res) => {
-  const { name, date, location, description } = req.body;
+  const { name, date, starttime, endtime, location, description } = req.body;
 
   try {
     if (description.length < 6) {
@@ -160,6 +168,8 @@ app.post("/markets", async (req, res) => {
       const newMarket = await new Market({
         name: name,
         date: date,
+        starttime: starttime,
+        endtime: endtime,
         location: location,
         description: description,
       }).save();
@@ -167,6 +177,8 @@ app.post("/markets", async (req, res) => {
         response: {
           name: newMarket.name,
           date: newMarket.date,
+          starttime: newMarket.starttime,
+          endtime: newMarket.endtime,
           location: newMarket.location,
           description: newMarket.description,
         },
