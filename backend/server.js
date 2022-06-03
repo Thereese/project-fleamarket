@@ -38,7 +38,7 @@ const MarketSchema = new mongoose.Schema({
     required: true,
   },
   date: {
-    type: Date,
+    type: String,
     required: true,
   },
   starttime: {
@@ -47,7 +47,6 @@ const MarketSchema = new mongoose.Schema({
   },
   endtime: {
     type: String,
-    required: true,
   },
   location: {
     type: String,
@@ -150,7 +149,8 @@ const authenticateUser = async (req, res, next) => {
   }
 };
 
-//POST A NEW FLEAMARKET (OUTSIDE REQUIRED USER FOR NOW)
+//POST A NEW FLEAMARKET//USER NEEDS TO BE LOGGED IN
+app.post("/markets", authenticateUser);
 app.post("/markets", async (req, res) => {
   const { name, date, starttime, endtime, location, description } = req.body;
 
@@ -189,7 +189,7 @@ app.post("/markets", async (req, res) => {
   }
 });
 
-//RETURN ALL FLEAMARKETS, SORTED IN ASCENDING ORDER//CHECK
+//RETURN ALL FLEAMARKETS, SORTED IN ASCENDING ORDER, NOT LOGGED IN MODE//CHECK
 //TRY TO REMOVED PASSED DATES FROM LIST//NOT SOLVED
 app.get("/markets", async (req, res) => {
   const markets = await Market.find().sort({ date: 1 });
