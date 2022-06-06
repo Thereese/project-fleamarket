@@ -2,20 +2,25 @@ import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 export const Login = () => {
-  const navigate = useNavigate();
-  const navigateToRegister = () => {
-    navigate("/register");
-  };
+  // const navigate = useNavigate();
+  // const navigateToRegister = () => {
+  //   navigate("/register");
+  // };
   return (
     <>
-      <h1>Form for sign in</h1>
+      <h1>Sign in</h1>
+      <form>
+        <label htmlFor="username">Username</label>
+        <input type="text"></input>
+        <label htmlFor="password">Password</label>
+        <input type="text"></input>
+        <button type="submit">Sign in</button>
+      </form>
       <p>
-        onclick login, send user to <Link to="/search">searchpage</Link>
-      </p>
-      <h2 className="registerlink">
         Don´t have an account? <Link to="/register">Register here!</Link>
-      </h2>
+      </p>
     </>
   );
 };
+//onSubmit button, sign in user and send to searchpage
 //dont have an account? sign up here! (link to register, with routes)

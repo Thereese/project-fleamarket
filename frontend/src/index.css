@@ -25,9 +25,22 @@ input {
 header {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  background-color: grey;
+  padding: 20px;
 }
+
+footer {
+  background-color: grey;
+  padding: 20px;
+}
+
 .registerlink a {
   color: lightsalmon;
   text-decoration: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
 }
