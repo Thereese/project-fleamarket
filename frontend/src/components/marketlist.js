@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { API_URL } from "../utils/utils";
+// import { API_URL } from "../utils/utils";
+import { Market } from "./Market";
 
 export const Marketlist = () => {
-  const [markets, setMarkets] = useState();
+  const [markets, setMarkets] = useState([]);
 
   useEffect(() => {
     const options = {
@@ -11,27 +12,22 @@ export const Marketlist = () => {
         "Content-Type": "application/json",
       },
     };
-    fetch(API_URL("markets"), options)
+    fetch("http://localhost:8080/markets", options)
       .then((res) => res.json())
       .then((json) => setMarkets(json));
   }, []);
 
-  //make a market component whick we can map over here instead?
+  // make a market component whick we can map over here instead?
+  //fix the setLoading.. maksys inspelning
 
   return (
-    <div>
-      <h1>Fleamarkets!</h1>
-      {markets.map((market) => (
-        <div key={market._id}>
-          <h2>{market.name}</h2>
-          <h3>{market.date}</h3>
-          <h3>
-            {market.starttime} to
-            {market.endtime}
-          </h3>
-          <p>{market.description}</p>
-        </div>
-      ))}
-    </div>
+    <section>
+      <h1>Flea markets in the area:</h1>
+      <article>
+        {markets.map((market) => (
+          <Market key={market._id} market={market} />
+        ))}
+      </article>
+    </section>
   );
 };

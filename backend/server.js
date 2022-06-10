@@ -74,7 +74,7 @@ app.post("/register", async (req, res) => {
       });
     }
     if (password.length < 8) {
-      res.status(400).json({
+      res.status(406).json({
         response: "Password must be at least 8 characters long",
         success: false,
       });
@@ -157,7 +157,7 @@ app.post("/markets", async (req, res) => {
   try {
     if (description.length < 6) {
       res.status(400).json({
-        response: "text too short",
+        response: "Description must be at least 6 characters long",
         success: false,
       });
     } else {

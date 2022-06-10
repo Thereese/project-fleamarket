@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 
 export const Startpage = () => {
   return (
-    <section>
-      <h2>
-        <Link to="/login">Log in</Link>
-      </h2>
-      <p className="registerlink">
-        Don´t have an account? <Link to="/register">Register here!</Link>
-      </p>
+    <article className="content-box">
+      <div className="btn-box">
+        <Link to="/login" className="login-btn">
+          <button>Log in</button>
+        </Link>
+        <Link to="/register" className="login-btn">
+          <button>Register</button>
+        </Link>
+      </div>
       <h1>IMAGE FIND?</h1>
       <section>
         <h2>About Find</h2>
@@ -26,6 +28,6 @@ export const Startpage = () => {
           <Link to="/register">add</Link>
         </p>
       </section>
-    </section>
+    </article>
   );
 };
