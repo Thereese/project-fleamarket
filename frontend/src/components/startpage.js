@@ -12,7 +12,7 @@ export const Startpage = () => {
           <button>Register</button>
         </Link>
       </div>
-      <h1>IMAGE FIND?</h1>
+      {/* <h1>IMAGE FIND?</h1> */}
       <section>
         <h2>About Find</h2>
         <p>
@@ -20,12 +20,12 @@ export const Startpage = () => {
           <Link to="/search">searchpage</Link>
         </p>
       </section>
-      <h1>IMAGE ADD?</h1>
+      {/* <h1>IMAGE ADD?</h1> */}
       <section>
         <h2>About Add</h2>
         <p>
           A short text about searching markets. Link to{" "}
-          <Link to="/register">add</Link>
+          <Link to="/addmarket">add</Link>
         </p>
       </section>
     </article>

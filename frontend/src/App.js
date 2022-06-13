@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
+
 import { Navbar } from "components/Navbar";
 import { About } from "components/About";
 import { Contact } from "components/Contact";

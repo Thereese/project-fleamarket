@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate, Navigate, Link } from "react-router-dom";
 import { getCookie } from "utils/cookieHelper";
+import { Map } from "./Map";
 
 export const Addmarket = () => {
   const [name, setName] = useState("");
@@ -73,7 +74,7 @@ export const Addmarket = () => {
 
   return (
     <article>
-      <h1>Test for add-section</h1>
+      <h1>Add a flea market</h1>
       <form onSubmit={onFormSubmit}>
         <label htmlFor="name">Name</label>
         <input type="text" id="name" value={name} onChange={onNameChange} />
@@ -95,6 +96,7 @@ export const Addmarket = () => {
           value={location}
           onChange={onLocationChange}
         />
+        <Map />
         <label htmlFor="description">Description</label>
         <input
           type="text"
@@ -102,7 +104,9 @@ export const Addmarket = () => {
           value={description}
           onChange={onDescriptionChange}
         />
-        <p>{error}</p>
+        <Link to="/Login">
+          <p>{error}</p>
+        </Link>
         <button type="submit">Add market</button>
       </form>
     </article>
