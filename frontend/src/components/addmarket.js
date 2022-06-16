@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, Navigate, Link } from "react-router-dom";
 import { getCookie } from "utils/cookieHelper";
-import { Map } from "./Map";
-// import { TestMap } from "./TestMap";
+// import { Map } from "./Map";
+import { TestMap } from "./TestMap";
 
 export const Addmarket = () => {
   const [name, setName] = useState("");
@@ -69,6 +69,14 @@ export const Addmarket = () => {
       });
   };
 
+  const updateFromMap = (selectedLocation) => {
+    // changes please
+    console.log({ locationFromMap: selectedLocation });
+    // handle me
+    // sets location to the set location
+    setLocation(selectedLocation);
+  };
+
   if (isAdded) {
     return <Navigate to="/confirmedadd" />;
   }
@@ -93,13 +101,15 @@ export const Addmarket = () => {
 
         <label htmlFor="location">Location</label>
 
-        <input
+        {/* <input
           type="text"
           id="location"
           value={location}
           onChange={onLocationChange}
-        />
-        <Map />
+        /> */}
+
+        <TestMap updateFromMap={updateFromMap} />
+
         <label htmlFor="description">Description</label>
         <input
           type="text"

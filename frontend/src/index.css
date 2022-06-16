@@ -153,3 +153,17 @@ form {
   padding: none;
   margin: none;
 }
+
+/* TESTMAP */
+
+.combobox-input {
+ width: 100%;
+ padding: 0.5rem;
+}
+
+.buttonn {
+  border: solid 2px black;
+  color: red;
+  position: absolute;
+  z-index: 12;
+}

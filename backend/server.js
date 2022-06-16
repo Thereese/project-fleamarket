@@ -49,7 +49,7 @@ const MarketSchema = new mongoose.Schema({
     type: String,
   },
   location: {
-    type: String,
+    type: Object,
     required: true,
   },
   description: {
