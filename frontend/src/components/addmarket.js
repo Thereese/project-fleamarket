@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Navigate, Link } from "react-router-dom";
 import { getCookie } from "utils/cookieHelper";
 import { Map } from "./Map";
+// import { TestMap } from "./TestMap";
 
 export const Addmarket = () => {
   const [name, setName] = useState("");
@@ -89,7 +90,9 @@ export const Addmarket = () => {
           value={closes}
           onChange={onClosesChange}
         />
+
         <label htmlFor="location">Location</label>
+
         <input
           type="text"
           id="location"
@@ -107,7 +110,9 @@ export const Addmarket = () => {
         <Link to="/Login">
           <p>{error}</p>
         </Link>
-        <button type="submit">Add market</button>
+        <button type="submit" className="buttonstyle">
+          Add market
+        </button>
       </form>
     </article>
   );

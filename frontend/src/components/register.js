@@ -60,7 +60,9 @@ export const Register = () => {
         {/* <label htmlFor="confirm password">Confirm password</label>
         <input type="text"></input> */}
         <div>{error}</div>
-        <button type="submit">Register</button>
+        <button type="submit" className="buttonstyle">
+          Register
+        </button>
         <p>
           Already have an account? <Link to="/login">Login here!</Link>
         </p>

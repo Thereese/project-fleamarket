@@ -6,10 +6,10 @@ export const Startpage = () => {
     <article className="content-box">
       <div className="btn-box">
         <Link to="/login" className="login-btn">
-          <button>Log in</button>
+          <button className="buttonstyle">Log in</button>
         </Link>
         <Link to="/register" className="login-btn">
-          <button>Register</button>
+          <button className="buttonstyle">Register</button>
         </Link>
       </div>
       {/* <h1>IMAGE FIND?</h1> */}

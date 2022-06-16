@@ -79,7 +79,7 @@ form {
   flex-direction: column;
 }
 
-button {
+.buttonstyle {
   background-color: var(--blue);
   border-radius: 3px;
   color: var(--beige);
@@ -110,9 +110,46 @@ button {
   margin: 10px 0 10px 0;
   padding:10px;
 }
-/* 
-.mapbox {
-  width: 100%;
-  height: 100%;
-} */
 
+.mapbox {
+  position: relative;
+}
+
+.floatText {
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+  z-index: 10;
+  margin: 0;
+  padding: 5px;
+  background-color: var(--ltaqua);
+}
+
+.search {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  max-width: 50%;
+  z-index: 10;
+}
+
+.searchinput {
+  width: 100%;
+}
+
+.searchinput input {
+  width: 100%;
+}
+
+.locate {
+  position: absolute;
+  top: 4rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  z-index: 10;
+  padding: none;
+  margin: none;
+}
