@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import { setCookie } from "utils/cookieHelper";
+import { API_URL } from "utils/utils";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
@@ -32,7 +33,7 @@ export const Login = () => {
       }),
     };
 
-    fetch("http://localhost:8080/login", options)
+    fetch(API_URL("login"), options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

@@ -3,6 +3,7 @@ import { useNavigate, Navigate, Link } from "react-router-dom";
 import { getCookie } from "utils/cookieHelper";
 // import { Map } from "./Map";
 import { TestMap } from "./TestMap";
+import { API_URL } from "utils/utils";
 
 export const Addmarket = () => {
   const [name, setName] = useState("");
@@ -57,7 +58,7 @@ export const Addmarket = () => {
       }),
     };
 
-    fetch("http://localhost:8080/markets", options)
+    fetch(API_URL("markets"), options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

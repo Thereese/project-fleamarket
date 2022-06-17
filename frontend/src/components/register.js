@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { setCookie } from "utils/cookieHelper";
+import { API_URL } from "utils/utils";
 
 export const Register = () => {
   const [username, setUsername] = useState("");
@@ -33,7 +34,7 @@ export const Register = () => {
       }),
     };
 
-    fetch("http://localhost:8080/register", options)
+    fetch(API_URL("register"), options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

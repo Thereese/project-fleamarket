@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { API_URL } from "utils/utils";
 
 import { Market } from "./Market";
 import { Map } from "./Map";
@@ -51,7 +52,7 @@ export const Marketlist = () => {
         "Content-Type": "application/json",
       },
     };
-    fetch("http://localhost:8080/markets", options)
+    fetch(API_URL("markets"), options)
       .then((res) => res.json())
       .then((json) => setMarkets(json));
   }, []);

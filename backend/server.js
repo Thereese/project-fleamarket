@@ -133,6 +133,12 @@ const authenticateUser = async (req, res, next) => {
   const accessToken = req.header("Authorization");
   try {
     const user = await User.findOne({ accessToken: accessToken });
+    const tesa = await User.findOne({
+      accessToken:
+        "2ba4625608a018e7b7efccfda145455ad0fe914f0cce3b6b150584348851abd8785c4fccc1cabe4bb6b4155374664cc74f2b19308d6e433a3ecdc415e6e329157c86b96fdc3deb69070eda711eaee95e53d5f3213889334891f2a0b1e1d5bd1f5e060d6050ed18c653e61a6dc73e89c3309ff5ed84cc4d1ccf89b5166ff81fbf",
+    });
+    console.log(tesa);
+    console.log(accessToken);
     if (user) {
       next();
     } else {
@@ -150,10 +156,10 @@ const authenticateUser = async (req, res, next) => {
 };
 
 //POST A NEW FLEAMARKET//USER NEEDS TO BE LOGGED IN
-app.post("/markets", authenticateUser);
-app.post("/markets", async (req, res) => {
+// app.post("/markets", authenticateUser);
+app.post("/markets", authenticateUser, async (req, res) => {
   const { name, date, starttime, endtime, location, description } = req.body;
-
+  console.log(location);
   try {
     if (description.length < 6) {
       res.status(400).json({
@@ -194,12 +200,6 @@ app.post("/markets", async (req, res) => {
 app.get("/markets", async (req, res) => {
   const markets = await Market.find().sort({ date: 1 });
   res.json(markets);
-});
-
-//SETUP WHEN LOGIN IS REQUIRED FOR PAGE
-app.get("/add", authenticateUser);
-app.get("/add", (req, res) => {
-  res.send("here is the addpage");
 });
 
 // Start defining your routes here
