@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { setCookie } from "utils/cookieHelper";
+import Sidebar from "./Sidebar";
 
 export const Navbar = () => {
   return (
     <header>
-      <h1>LOGO: Finding Fleamarkets</h1>
-      <ul>
+      <h1>LOGO:</h1>
+      {/* <Sidebar /> */}
+      {/* <ul>
         <li>
           <Link to="/about">About</Link>
         </li>
@@ -18,7 +20,7 @@ export const Navbar = () => {
             Sign out
           </Link>
         </li>
-      </ul>
+      </ul> */}
     </header>
   );
 };

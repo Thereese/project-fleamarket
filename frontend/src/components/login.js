@@ -46,7 +46,7 @@ export const Login = () => {
   };
 
   if (isLoggedIn) {
-    return <Navigate to="/addmarket" />;
+    return <Navigate to="/marketlist" />;
   }
 
   return (

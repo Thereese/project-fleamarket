@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-// import { API_URL } from "../utils/utils";
+import { Link } from "react-router-dom";
+
 import { Market } from "./Market";
 import { Map } from "./Map";
 
@@ -35,15 +36,13 @@ const options = {
   zoomControl: true,
   fullscreenControl: true,
 };
-///SLUT
 
 export const Marketlist = () => {
   const [markets, setMarkets] = useState([]);
   // const [markers, setMarkers] = useState([]);
-  const [zoom, setZoom] = useState(15);
-  const [bounds, setBounds] = useState(null);
 
   const mapRef = useRef();
+
   console.log(markets);
   useEffect(() => {
     const options = {
@@ -81,11 +80,13 @@ export const Marketlist = () => {
           {markets.map((market) => {
             <Marker
               key={market._id}
+              const
               position={{ lat: market.location.lat, lng: market.location.lng }}
             />;
           })}
         </GoogleMap>
       </div>
+
       <article>
         {/* {markets.map((market) => (
           <>
@@ -93,6 +94,10 @@ export const Marketlist = () => {
           </>
         ))} */}
       </article>
+      <div>
+        <p>Select area on map</p>
+        <Link to="/addmarket">add market</Link>
+      </div>
     </section>
   );
 };

@@ -5,8 +5,9 @@ export const ConfirmedAdd = () => {
   return (
     <>
       <h1>Your flea market has beed added!</h1>
-      <Link to="/">Startpage</Link>
-      <Link to="/search">Search</Link>
+      <p>
+        Back to <Link to="/marketlist">searchpage</Link>
+      </p>
     </>
   );
 };

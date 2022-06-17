@@ -12,19 +12,19 @@ export const Startpage = () => {
           <button className="buttonstyle">Register</button>
         </Link>
       </div>
-      {/* <h1>IMAGE FIND?</h1> */}
-      <section>
+      <section className="about-box">
+        <img src="https://via.placeholder.com/80" alt="image of find" />
         <h2>About Find</h2>
         <p>
-          A short text about searching markets. Link to{" "}
-          <Link to="/search">searchpage</Link>
+          A short text about searching markets.
+          <Link to="/marketlist">searchpage</Link>
         </p>
       </section>
-      {/* <h1>IMAGE ADD?</h1> */}
-      <section>
+      <section className="about-box">
+        <img src="https://via.placeholder.com/80" alt="image of add" />
         <h2>About Add</h2>
         <p>
-          A short text about searching markets. Link to{" "}
+          A short text about searching markets.
           <Link to="/addmarket">add</Link>
         </p>
       </section>
