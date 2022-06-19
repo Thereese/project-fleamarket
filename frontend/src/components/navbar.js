@@ -17,6 +17,9 @@ export const Navbar = () => {
         </li>
         <li>
           <Link to="/" onClick={setCookie("accessToken", null)}>
+
+          new page
+          
             Sign out
           </Link>
         </li>

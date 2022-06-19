@@ -11,11 +11,7 @@ export default (props) => {
       <a className="menu-item" href="/about">
         About
       </a>
-      <a
-        className="menu-item"
-        href="/"
-        onClick={setCookie("accessToken", null)}
-      >
+      <a className="menu-item" href="/logout">
         Sign out
       </a>
     </Menu>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { API_URL } from "utils/utils";
 
@@ -40,11 +40,26 @@ const options = {
 
 export const Marketlist = () => {
   const [markets, setMarkets] = useState([]);
+  const [selected, setSelected] = useState(null);
   // const [markers, setMarkers] = useState([]);
+
+  const onMapClick = useCallback((event) => {
+    setMarkets((current) => [
+      ...current,
+      {
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng(),
+      },
+    ]);
+  }, []);
 
   const mapRef = useRef();
 
-  console.log(markets);
+  const onMapLoad = useCallback((map) => {
+    mapRef.current = map;
+  }, []);
+
+  console.log(markets, "markets i state");
   useEffect(() => {
     const options = {
       method: "GET",
@@ -52,6 +67,7 @@ export const Marketlist = () => {
         "Content-Type": "application/json",
       },
     };
+    // fetch("http://localhost:8080/markets", options)
     fetch(API_URL("markets"), options)
       .then((res) => res.json())
       .then((json) => setMarkets(json));
@@ -61,6 +77,12 @@ export const Marketlist = () => {
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   });
+
+  const panTo = useCallback(({ lat, lng }) => {
+    mapRef.current.panTo({ lat, lng });
+    mapRef.current.setZoom(15);
+  }, []);
+
   if (loadError) {
     return "Error loading maps";
   }
@@ -72,36 +94,91 @@ export const Marketlist = () => {
     <section>
       <div className="mapbox">
         <h3 className="floatText">Markets</h3>
+        <Locate panTo={panTo} />
         <GoogleMap
           center={center}
           zoom={15}
           mapContainerStyle={mapContainerStyle}
           options={options}
+          onClick={onMapClick}
+          onLoad={onMapLoad}
         >
-          {markets.map((market) => {
-            <Marker
-              key={market._id}
-              const
-              position={{ lat: market.location.lat, lng: market.location.lng }}
-            />;
-          })}
+          {markets.map(
+            ({
+              _id,
+              location,
+              name,
+              date,
+              starttime,
+              endtime,
+              description,
+            }) => {
+              const isSelected = selected === _id;
+              return (
+                <Marker
+                  key={_id}
+                  position={{
+                    lat: location.lat,
+                    lng: location.lng,
+                  }}
+                  onClick={() => {
+                    setSelected(_id);
+                  }}
+                >
+                  {isSelected ? (
+                    <InfoWindow
+                      // position={{ lat: selected.lat, lng: selected.lng }}
+                      onCloseClick={() => {
+                        setSelected(null);
+                      }}
+                    >
+                      <div className="info-window">
+                        <h2>{name}</h2>
+                        <h3>{date}</h3>
+                        <h3>{starttime}</h3>
+                        <h3>{endtime}</h3>
+                        <h3>{description}</h3>
+                      </div>
+                    </InfoWindow>
+                  ) : null}
+                </Marker>
+              );
+            }
+          )}
         </GoogleMap>
       </div>
 
       <article>
-        {/* {markets.map((market) => (
-          <>
-            <Market key={market._id} market={market} />
-          </>
-        ))} */}
+        {markets.map((market) => (
+          <Market key={market._id} market={market} />
+        ))}
       </article>
       <div>
-        <p>Select area on map</p>
         <Link to="/addmarket">add market</Link>
       </div>
     </section>
   );
 };
+function Locate({ panTo }) {
+  return (
+    <button
+      className="locate"
+      onClick={() => {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            panTo({
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            });
+          },
+          () => null
+        );
+      }}
+    >
+      <img src="https://via.placeholder.com/40" alt="compass - locate me" />
+    </button>
+  );
+}
 
 //fix the setLoading
 //return map of markets depending on how its filtered, either all or an area

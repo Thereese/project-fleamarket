@@ -34,6 +34,7 @@ export const Login = () => {
     };
 
     fetch(API_URL("login"), options)
+      // fetch("http://localhost:8080/login", options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

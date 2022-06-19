@@ -82,6 +82,7 @@ export const Map = () => {
         options={options}
         onClick={onMapClick}
         onLoad={onMapLoad}
+        v
       >
         {markers.map((marker) => (
           <Marker

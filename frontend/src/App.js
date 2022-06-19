@@ -10,6 +10,7 @@ import { Addmarket } from "components/Addmarket";
 import { Marketlist } from "components/MarketList";
 import { Footer } from "components/Footer";
 import { ConfirmedAdd } from "components/ConfirmedAdd";
+import { Logout } from "components/Logout";
 
 export const App = () => {
   return (
@@ -29,6 +30,7 @@ export const App = () => {
             <Route path="/confirmedadd" element={<ConfirmedAdd />} />
             <Route path="/marketlist" element={<Marketlist />} />
             <Route path="/about" element={<About />} />
+            <Route path="/logout" element={<Logout />} />
           </Routes>
         </div>
         <Footer />
