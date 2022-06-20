@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Navbar } from "components/Navbar";
-import Sidebar from "components/Sidebar";
-import { About } from "components/About";
-import { Startpage } from "components/Startpage";
-import { Login } from "components/Login";
-import { Register } from "components/Register";
-import { Addmarket } from "components/Addmarket";
-import { Marketlist } from "components/MarketList";
-import { Footer } from "components/Footer";
-import { ConfirmedAdd } from "components/ConfirmedAdd";
-import { Logout } from "components/Logout";
+import React, { useState } from "react"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Navbar } from "./components/Navbar"
+import Sidebar from "./components/Sidebar"
+import { About } from "./components/About"
+import { Startpage } from "./components/Startpage"
+import { Login } from "./components/Login"
+import { Register } from "./components/Register"
+import { Addmarket } from "./components/Addmarket"
+import { Marketlist } from "./components/Marketlist"
+import { Footer } from "./components/Footer"
+import { ConfirmedAdd } from "./components/ConfirmedAdd"
+import { Logout } from "./components/Logout"
 
 export const App = () => {
   return (
@@ -36,5 +36,5 @@ export const App = () => {
         <Footer />
       </BrowserRouter>
     </div>
-  );
-};
+  )
+}
