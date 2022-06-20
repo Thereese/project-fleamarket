@@ -41,17 +41,6 @@ const options = {
 export const Marketlist = () => {
   const [markets, setMarkets] = useState([]);
   const [selected, setSelected] = useState(null);
-  // const [markers, setMarkers] = useState([]);
-
-  const onMapClick = useCallback((event) => {
-    setMarkets((current) => [
-      ...current,
-      {
-        lat: event.latLng.lat(),
-        lng: event.latLng.lng(),
-      },
-    ]);
-  }, []);
 
   const mapRef = useRef();
 
@@ -67,8 +56,8 @@ export const Marketlist = () => {
         "Content-Type": "application/json",
       },
     };
-    // fetch("http://localhost:8080/markets", options)
-    fetch(API_URL("markets"), options)
+    fetch("http://localhost:8080/markets", options)
+      // fetch(API_URL("markets"), options)
       .then((res) => res.json())
       .then((json) => setMarkets(json));
   }, []);
@@ -92,15 +81,15 @@ export const Marketlist = () => {
 
   return (
     <section>
+      <h2>Search for markets</h2>
       <div className="mapbox">
-        <h3 className="floatText">Markets</h3>
+        <Search panTo={panTo} />
         <Locate panTo={panTo} />
         <GoogleMap
           center={center}
           zoom={15}
           mapContainerStyle={mapContainerStyle}
           options={options}
-          onClick={onMapClick}
           onLoad={onMapLoad}
         >
           {markets.map(
@@ -147,15 +136,16 @@ export const Marketlist = () => {
           )}
         </GoogleMap>
       </div>
-
+      <div>
+        <Link to="/addmarket">
+          <button className="buttonstyle">Add new market</button>
+        </Link>
+      </div>
       <article>
         {markets.map((market) => (
           <Market key={market._id} market={market} />
         ))}
       </article>
-      <div>
-        <Link to="/addmarket">add market</Link>
-      </div>
     </section>
   );
 };
@@ -177,6 +167,58 @@ function Locate({ panTo }) {
     >
       <img src="https://via.placeholder.com/40" alt="compass - locate me" />
     </button>
+  );
+}
+
+function Search({ panTo }) {
+  const {
+    ready,
+    value,
+    suggestions: { status, data },
+    setValue,
+    clearSuggestions,
+  } = usePlacesAutocomplete({
+    requestOptions: {
+      location: { lat: () => 59.3014, lng: () => 18.0061 },
+      radius: 20 * 1000,
+    },
+  });
+
+  return (
+    <div className="search">
+      <Combobox
+        className="searchinput"
+        onSelect={async (address) => {
+          setValue(address, false);
+          clearSuggestions();
+
+          try {
+            const results = await getGeocode({ address });
+            const { lat, lng } = await getLatLng(results[0]);
+            panTo({ lat, lng });
+          } catch (error) {
+            console.log("error");
+          }
+        }}
+      >
+        <ComboboxInput
+          value={value}
+          onChange={(e) => {
+            setValue(e.target.value);
+          }}
+          disabled={!ready}
+          placeholder="Enter an address"
+        />
+        <ComboboxPopover>
+          <ComboboxList>
+            {status === "OK" &&
+              data.map(({ place_id, description }) => (
+                <ComboboxOption key={place_id} value={description} />
+              ))}
+          </ComboboxList>
+        </ComboboxPopover>
+      </Combobox>
+    </div>
   );
 }
 
