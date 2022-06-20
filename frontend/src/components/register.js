@@ -33,8 +33,8 @@ export const Register = () => {
         password: password,
       }),
     };
-    fetch("http://localhost:8080/register", options)
-      // fetch(API_URL("register"), options)
+    // fetch("http://localhost:8080/register", options)
+    fetch(API_URL("register"), options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

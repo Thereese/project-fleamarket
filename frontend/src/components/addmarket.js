@@ -56,8 +56,8 @@ export const Addmarket = () => {
         description: description,
       }),
     };
-    fetch("http://localhost:8080/markets", options)
-      // fetch(API_URL("markets"), options)
+    // fetch("http://localhost:8080/markets", options)
+    fetch(API_URL("markets"), options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
