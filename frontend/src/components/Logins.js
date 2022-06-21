@@ -34,11 +34,9 @@ export const Login = () => {
     };
 
     fetch(API_URL("login"), options)
-      // fetch("http://localhost:8080/login", options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          // make login actions
           setCookie("accessToken", data.accessToken);
           setIsLoggedIn(true);
         } else {
@@ -70,6 +68,3 @@ export const Login = () => {
     </article>
   );
 };
-
-//onSubmit button, sign in user and send to searchpage
-//dont have an account? sign up here! (link to register, with routes)
