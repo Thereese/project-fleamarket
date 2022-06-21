@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from "./components/Navbars";
 import Sidebar from "./components/Sidebars";
 import { About } from "./components/Abouts";
-import { Startpage } from "./components/Startpage";
+import { Startpage } from "./components/Startpages";
 import { Login } from "./components/Logins";
 import { Register } from "./components/Registers";
 import { Addmarket } from "./components/Addmarkets";
