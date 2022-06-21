@@ -48,7 +48,7 @@ export const Addmarket = () => {
         Authorization: accessToken,
       },
       body: JSON.stringify({
-        name: name,
+        name,
         date: date,
         starttime: opens,
         endtime: closes,
@@ -100,13 +100,6 @@ export const Addmarket = () => {
         />
 
         <label htmlFor="location">Location</label>
-
-        {/* <input
-          type="text"
-          id="location"
-          value={location}
-          onChange={onLocationChange}
-        /> */}
 
         <TestMap updateFromMap={updateFromMap} />
 

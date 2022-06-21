@@ -189,12 +189,12 @@ const Search = ({ panTo }) => {
     setValue(e.target.value);
   };
 
-  const handleSelect = (description) => () => {
+  const handleSelect = (suggestion) => () => {
     //   async (address) => {
-    setValue(description, false);
+    setValue(suggestion.description);
     clearSuggestions();
 
-    getGeocode({ address: description }).then((results) => {
+    getGeocode({ address: suggestion.description }).then((results) => {
       const { lat, lng } = getLatLng(results[0]);
       panTo({ lat, lng });
       console.log("📍 Coordinates: ", { lat, lng });

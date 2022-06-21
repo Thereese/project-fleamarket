@@ -47,16 +47,21 @@ const Map = ({ updateFromMap }) => {
   const [selected, setSelected] = useState(null);
 
   // run me when selected change
-  useEffect(() => {
-    // run function from prop
-    // this function comes from TestMap
-    updateFromMap(selected);
-  }, [selected]);
+  // useEffect(() => {
+  // run function from prop
+  // this function comes from TestMap
+  //   updateFromMap(selected);
+  // }, [selected]);
+  const autocompleteSelect = (value) => {
+    setSelected(value);
+    updateFromMap(value);
+    console.log(value);
+  };
 
   return (
     <>
       <div className="places-container">
-        <PlacesAutocomplete setSelected={setSelected} />
+        <PlacesAutocomplete setSelected={autocompleteSelect} />
       </div>
       <GoogleMap
         zoom={10}
@@ -94,6 +99,7 @@ const PlacesAutocomplete = ({ setSelected }) => {
       getGeocode({ address: description }).then((results) => {
         const { lat, lng } = getLatLng(results[0]);
         console.log("📍 Coordinates: ", { lat, lng });
+        setSelected({ lat, lng });
       });
     };
 
