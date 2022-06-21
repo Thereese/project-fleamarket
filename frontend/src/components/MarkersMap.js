@@ -1,22 +1,7 @@
-import { React, useCallback, useState, useRef } from "react";
-import {
-  GoogleMap,
-  Marker,
-  useLoadScript,
-  InfoWindow,
-} from "@react-google-maps/api";
-import usePlacesAutocomplete, {
-  getGeocode,
-  getLatLng,
-} from "use-places-autocomplete";
+import React, { useState } from "react";
+import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+
 import mapStyles from "mapStyles";
-import {
-  Combobox,
-  ComboboxInput,
-  ComboboxList,
-  ComboboxOption,
-  ComboboxPopover,
-} from "@reach/combobox";
 import "@reach/combobox/styles.css";
 
 const center = { lat: 59.3014, lng: 18.0061 };
@@ -31,14 +16,13 @@ const options = {
   fullscreenControl: true,
 };
 
-export const MarkersMap = ({ marker }) => {
+export const MarkersMap = ({}) => {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   });
   console.log(process.env);
   const [markers, setMarkers] = useState([]);
-  const [selected, setSelected] = useState(null);
 
   if (loadError) {
     return "Error loading maps";
@@ -55,8 +39,6 @@ export const MarkersMap = ({ marker }) => {
         zoom={15}
         mapContainerStyle={mapContainerStyle}
         options={options}
-        // onClick={onMapClick}
-        // onLoad={onMapLoad}
       >
         {markers.map((marker) => (
           <Marker
