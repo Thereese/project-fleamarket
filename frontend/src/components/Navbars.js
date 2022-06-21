@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { setCookie } from "utils/cookieHelper";
-import Sidebar from "./Sidebar";
+import Sidebar from "./Sidebars";
 
 export const Navbar = () => {
   return (

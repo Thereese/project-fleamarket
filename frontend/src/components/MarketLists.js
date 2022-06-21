@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { API_URL } from "utils/utils";
 
-import { Market } from "./Market";
-import { Map } from "./Map";
+import { Market } from "./Markets";
+import { Map } from "./Maps";
 
 ///MAPPEN
 import {
