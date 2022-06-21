@@ -10,14 +10,14 @@ import usePlacesAutocomplete, {
   getLatLng,
 } from "use-places-autocomplete";
 import mapStyles from "mapStyles";
-import {
-  Combobox,
-  ComboboxInput,
-  ComboboxList,
-  ComboboxOption,
-  ComboboxPopover,
-} from "@reach/combobox";
-import "@reach/combobox/styles.css";
+// import {
+//   Combobox,
+//   ComboboxInput,
+//   ComboboxList,
+//   ComboboxOption,
+//   ComboboxPopover,
+// } from "@reach/combobox";
+// import "@reach/combobox/styles.css";
 
 const center = { lat: 59.3014, lng: 18.0061 };
 

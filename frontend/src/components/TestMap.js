@@ -18,7 +18,7 @@ import usePlacesAutocomplete, {
 } from "use-places-autocomplete";
 import mapStyles from "mapStyles";
 
-import "@reach/combobox/styles.css";
+// import "@reach/combobox/styles.css";
 
 const center = { lat: 59.3014, lng: 18.0061 };
 
