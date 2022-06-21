@@ -6,27 +6,31 @@ export const Startpage = () => {
     <article className="content-box">
       <div className="btn-box">
         <Link to="/login" className="login-btn">
-          <button className="buttonstyle">Log in</button>
+          <button className="firstpage-btn">Log in</button>
         </Link>
         <Link to="/register" className="login-btn">
-          <button className="buttonstyle">Register</button>
+          <button className="firstpage-btn">Register</button>
         </Link>
       </div>
       <section className="about-box">
-        <img src="https://via.placeholder.com/80" alt="image of find" />
-        <h2>About Find</h2>
-        <p>
-          A short text about searching markets.
-          <Link to="/marketlist">searchpage</Link>
-        </p>
+        <Link to="/marketlist">
+          <img src="https://via.placeholder.com/80" alt="image of find" />
+          <h2>Find one!</h2>
+          <p>
+            Looking for flea markets? Here you can search for them, maybe you
+            have one just around the corner!
+          </p>
+        </Link>
       </section>
       <section className="about-box">
-        <img src="https://via.placeholder.com/80" alt="image of add" />
-        <h2>About Add</h2>
-        <p>
-          A short text about searching markets.
-          <Link to="/addmarket">add</Link>
-        </p>
+        <Link to="/addmarket">
+          <img src="https://via.placeholder.com/80" alt="image of add" />
+          <h2>Add one!</h2>
+          <p>
+            Planning to have your own flea market? Log in and add it here so
+            people can find it and visit!
+          </p>
+        </Link>
       </section>
     </article>
   );

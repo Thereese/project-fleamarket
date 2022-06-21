@@ -6,11 +6,18 @@ export const About = () => {
     <>
       <h1>About "Finding Fleamarkets"</h1>
       <p>
-        To live more sustainable and circular is something more and more people
-        do. The amount of flea markets is getting bigger and bigger. This is an
-        application to help people find and/or add flea market in a chosen area.
+        More and more people understand the importance of living in a more
+        sustainable way. Also what responsibility we have to take care of this
+        planet and all it´s inhabitants. <br /> One way of approaching this is
+        to change our consumer behaviuor to a more circular one. Flea markets
+        are a great way of both selling and buying pre-loved things. With this
+        app I wan´t to make it easier to search for markets and to add your own.
       </p>
-      <Link to="/">Startpage</Link>
+      <Link to="/">
+        <button type="submit" className="buttonstyle">
+          Go find markets!
+        </button>
+      </Link>
     </>
   );
 };

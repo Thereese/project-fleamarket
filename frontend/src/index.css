@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -11,6 +13,7 @@
 
 body {
   margin: 0;
+  font-family: 'Grand Hotel', cursive;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -34,6 +37,7 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 100vh;
   background-color: var(--ltaqua);
   padding-bottom: 6rem;
+  margin-top: 105px;
 }
 
 .box {
@@ -41,10 +45,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: auto;
   margin-top: 3rem;
   display: grid;
-  width: 70%;
+  width: 80%;
   max-width: 700px;
   /* max-width: 1240px; */
-  background-color: var(--beige);
+  /* background-color: var(--beige); */
   padding: 2rem;
   padding-bottom: 2.5rem;
 }
@@ -58,16 +62,27 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 2rem;
 }
 
+.about-box a {
+  text-decoration: none;
+  color: black;
+}
+
 input {
   margin-bottom: 20px;
 }
 
 header {
   display: flex;
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   background-color: var(--dkbeige);
   padding: 20px;
+  font-family: 'Grand Hotel';
+  font-size: 1.5rem;
 }
 
 footer {
@@ -75,8 +90,25 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;      
+  /* height: 4rem;  */
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
+
+.footer-txt {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ line-height: 1.5;
+}
+
+.footer-txt p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
 
 .registerlink a {
   color: lightsalmon;
@@ -90,7 +122,15 @@ form {
 
 .buttonstyle {
   background-color: var(--blue);
-  border-radius: 3px;
+  border-radius: 8px;
+  color: var(--beige);
+  width: 25%;
+  padding: 10px;
+}
+
+.firstpage-btn {
+  background-color: var(--blue);
+  border-radius: 8px;
   color: var(--beige);
   width: 100%;
   padding: 10px;
@@ -105,6 +145,7 @@ form {
   width: 80%;
   justify-content: center;
   margin-bottom: 1rem;
+  gap: 1rem;
 }
 
 
@@ -249,7 +290,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
   color: var(--beige);
   margin-bottom: 10px;
-  text-align: left;
+  text-align: right;
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -260,7 +301,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 #page-wrap {
   padding-bottom: 10px;
-  padding-top: 10px;
+  padding-top: 40px;
 }
 
 .info-window {
