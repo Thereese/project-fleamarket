@@ -13,6 +13,7 @@ export const About = () => {
         are a great way of both selling and buying pre-loved things. With this
         app I wan´t to make it easier to search for markets and to add your own.
       </p>
+      <p>maybe this text can help</p>
       <Link to="/">
         <button type="submit" className="buttonstyle">
           Go find markets!

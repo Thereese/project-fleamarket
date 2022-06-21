@@ -10,5 +10,5 @@ export const Logout = () => {
     navigate("/");
   }, []);
 
-  return <div>Loggin out</div>;
+  return <div>Loggin out.. your user</div>;
 };
