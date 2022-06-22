@@ -48,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
 .box {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3rem;
+  margin-top: 118px;
   display: grid;
   width: 80%;
   max-width: 700px;
@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   justify-content: left;
-  width: 80%;
+  width: 100%;
   margin-bottom: 2rem;
   margin-top: 2rem;
 }
@@ -74,6 +74,20 @@ h1, h2, h3, h4, h5, h6 {
 
 input {
   margin-bottom: 20px;
+  border-radius: 30px;
+  border: none;
+  height: 2rem;
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+input[value=""]:not(:focus) { 
+  color: transparent; 
+}
+
+label {
+  margin-left: 20px;
 }
 
 header {
@@ -88,6 +102,7 @@ header {
   padding: 20px;
   font-family: 'Grand Hotel';
   font-size: 1.5rem;
+  /* word-spacing: 10px; */
 }
 
 header a {
@@ -99,6 +114,7 @@ header a {
 ul {
   list-style: none;
   font-size: 1rem;
+  padding: 0;
 }
 
 footer {
@@ -138,18 +154,21 @@ form {
 
 .buttonstyle {
   background-color: var(--blue);
-  border-radius: 8px;
+  border-radius: 30px;
   color: var(--beige);
   width: 25%;
   padding: 10px;
+  width: 100%;
+  border: none;
 }
 
 .firstpage-btn {
   background-color: var(--blue);
-  border-radius: 8px;
+  border-radius: 30px;
   color: var(--beige);
   width: 100%;
   padding: 10px;
+  border: none;
 }
 
 .login-btn {
@@ -159,7 +178,7 @@ form {
 .btn-box {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 100%;
   align-items: center;
   margin-bottom: 1rem;
   gap: 1rem;
@@ -213,12 +232,12 @@ form {
 .locate {
   position: absolute;
   top: 4rem;
-  right: 0.5rem;
+  right: 0px;
   background: none;
   border: none;
   z-index: 10;
-  padding: none;
-  margin: none;
+  padding: 0;
+  margin: 10px;
 }
 
 /* TESTMAP */

@@ -82,6 +82,7 @@ export const Addmarket = () => {
     <article>
       <h1>Add a flea market</h1>
       <form onSubmit={onFormSubmit}>
+        {/* <form onSubmit={onFormSubmit}> */}
         <label htmlFor="name">Name</label>
         <input type="text" id="name" value={name} onChange={onNameChange} />
         <label htmlFor="date">When does it take place?</label>
@@ -96,10 +97,6 @@ export const Addmarket = () => {
           onChange={onClosesChange}
         />
 
-        <label htmlFor="location">Location</label>
-
-        <TestMap updateFromMap={updateFromMap} />
-
         <label htmlFor="description">Description</label>
         <input
           type="text"
@@ -107,10 +104,13 @@ export const Addmarket = () => {
           value={description}
           onChange={onDescriptionChange}
         />
+
+        <label htmlFor="location">Location</label>
+        <TestMap updateFromMap={updateFromMap} />
         <Link to="/Login">
           <p>{error}</p>
         </Link>
-        <button type="submit" className="buttonstyle">
+        <button type="submit" className="buttonstyle" onClick={onFormSubmit}>
           ADD MARKET
         </button>
       </form>

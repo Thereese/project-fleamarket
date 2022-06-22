@@ -14,14 +14,15 @@ import { Logout } from "./components/Logouts";
 
 export const App = () => {
   return (
-    <div className="page-container" id="outer-container">
+    <div className="page-container">
       <BrowserRouter>
         <Navbar />
         {/* <Sidebar
           pageWrapId={"page-wrap"}
           outerContainerId={"outer-container"}
         /> */}
-        <div className="box" id="page-wrap">
+        {/* <div className="box" id="page-wrap"> */}
+        <div className="box">
           <Routes>
             <Route path="/" element={<Startpage />} />
             <Route path="/login" element={<Login />} />
