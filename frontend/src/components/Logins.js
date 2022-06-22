@@ -59,7 +59,7 @@ export const Login = () => {
         <input type="text" onChange={onPasswordChange} value={password}></input>
         <div className="error">{error}</div>
         <button type="submit" className="buttonstyle">
-          Sign in
+          SIGN IN
         </button>
       </form>
       <p>

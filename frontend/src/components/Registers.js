@@ -62,7 +62,7 @@ export const Register = () => {
         <input type="text"></input> */}
         <div>{error}</div>
         <button type="submit" className="buttonstyle">
-          Register
+          REGISTER
         </button>
         <p>
           Already have an account? <Link to="/login">Login here!</Link>

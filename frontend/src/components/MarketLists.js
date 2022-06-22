@@ -138,7 +138,7 @@ export const Marketlist = () => {
       </div>
       <div>
         <Link to="/addmarket">
-          <button className="buttonstyle">Add new market</button>
+          <button className="buttonstyle">ADD NEW MARKET</button>
         </Link>
       </div>
       <article>

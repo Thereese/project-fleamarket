@@ -70,10 +70,7 @@ export const Addmarket = () => {
   };
 
   const updateFromMap = (selectedLocation) => {
-    // changes please
     console.log({ locationFromMap: selectedLocation });
-    // handle me
-    // sets location to the set location
     setLocation(selectedLocation);
   };
 
@@ -114,7 +111,7 @@ export const Addmarket = () => {
           <p>{error}</p>
         </Link>
         <button type="submit" className="buttonstyle">
-          Add market
+          ADD MARKET
         </button>
       </form>
     </article>

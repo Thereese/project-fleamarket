@@ -16,7 +16,7 @@ export const About = () => {
       <p>maybe this text can help</p>
       <Link to="/">
         <button type="submit" className="buttonstyle">
-          Go find markets!
+          FIND MARKETS!
         </button>
       </Link>
     </>

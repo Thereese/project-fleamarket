@@ -17,10 +17,10 @@ export const App = () => {
     <div className="page-container" id="outer-container">
       <BrowserRouter>
         <Navbar />
-        <Sidebar
+        {/* <Sidebar
           pageWrapId={"page-wrap"}
           outerContainerId={"outer-container"}
-        />
+        /> */}
         <div className="box" id="page-wrap">
           <Routes>
             <Route path="/" element={<Startpage />} />
