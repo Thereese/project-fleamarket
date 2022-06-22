@@ -58,7 +58,7 @@ export const Login = () => {
         <label htmlFor="password">Password</label>
         <input type="text" onChange={onPasswordChange} value={password}></input>
         <div className="error">{error}</div>
-        <button type="submit" className="buttonstyle">
+        <button type="submit" className="buttonstyle" onClick={onFormSubmit}>
           SIGN IN
         </button>
       </form>
