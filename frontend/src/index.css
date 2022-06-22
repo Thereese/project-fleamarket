@@ -42,13 +42,14 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 100vh;
   background-color: var(--ltaqua);
   padding-bottom: 6rem;
-  margin-top: 105px;
+  padding-top: 130px;
+  /* margin-top: 105px; */
 }
 
 .box {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 118px;
+  /* padding-top: 118px; */
   display: grid;
   width: 80%;
   max-width: 700px;
@@ -113,7 +114,7 @@ header a {
 
 ul {
   list-style: none;
-  font-size: 1rem;
+  font-size: 15px;
   padding: 0;
 }
 
@@ -160,6 +161,8 @@ form {
   padding: 10px;
   width: 100%;
   border: none;
+  margin-top: 2rem;
+  cursor: pointer;
 }
 
 .firstpage-btn {
@@ -342,4 +345,46 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 .info-window {
   background-color: var(--beige);
+}
+
+/* FOR HEADER TO CHANGE ON MINI */
+@media (max-width: 400px){
+
+}
+
+/* FOR TABLET */
+@media screen and (min-width: 768px) {
+  header {
+    padding: 20px;
+    font-family: 'Grand Hotel';
+    font-size: 2rem;
+  }
+  
+  ul {
+    list-style: none;
+    font-size: 18px;
+    padding: 0;
+  }
+
+/* FOR DESKTOP */
+@media screen and (min-width: 992px) {
+
+  header {
+    padding: 20px;
+    font-family: 'Grand Hotel';
+    font-size: 2rem;
+  }
+  
+  header a {
+    font-family: 'Lato', sans-serif;
+    text-decoration: none;
+    color: var(--blue)
+  }
+  
+  ul {
+    list-style: none;
+    font-size: 18px;
+    padding: 0;
+  }
+}
 }

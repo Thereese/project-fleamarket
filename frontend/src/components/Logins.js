@@ -9,7 +9,7 @@ export const Login = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [error, setError] = useState("");
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const onUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -52,13 +52,13 @@ export const Login = () => {
   return (
     <article>
       <h2>Sign in</h2>
-      <form>
+      <form onSubmit={onFormSubmit}>
         <label htmlFor="username">Username</label>
         <input type="text" onChange={onUsernameChange} value={username}></input>
         <label htmlFor="password">Password</label>
         <input type="text" onChange={onPasswordChange} value={password}></input>
         <div className="error">{error}</div>
-        <button type="submit" className="buttonstyle" onClick={onFormSubmit}>
+        <button type="submit" className="buttonstyle">
           SIGN IN
         </button>
       </form>
