@@ -1,6 +1,6 @@
-import React from "react";
-import { slide as Menu } from "react-burger-menu";
-import { setCookie } from "utils/cookieHelper";
+import React from "react"
+import { slide as Menu } from "react-burger-menu"
+import { setCookie } from "../utils/cookieHelper"
 
 export default (props) => {
   return (
@@ -15,5 +15,5 @@ export default (props) => {
         Sign out
       </a>
     </Menu>
-  );
-};
+  )
+}

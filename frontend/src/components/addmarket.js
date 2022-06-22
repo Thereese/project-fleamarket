@@ -1,45 +1,45 @@
-import React, { useState } from "react";
-import { useNavigate, Navigate, Link } from "react-router-dom";
-import { getCookie } from "utils/cookieHelper";
-import { TestMap } from "./TestMap";
-import { API_URL } from "utils/utils";
+import React, { useState } from "react"
+import { useNavigate, Navigate, Link } from "react-router-dom"
+import { getCookie } from "../utils/cookieHelper"
+import { TestMap } from "./TestMap"
+import { API_URL } from "../utils/utils"
 
 export const Addmarket = () => {
-  const [name, setName] = useState("");
-  const [date, setDate] = useState("");
-  const [opens, setOpens] = useState("");
-  const [closes, setCloses] = useState("");
-  const [location, setLocation] = useState("");
-  const [description, setDescription] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isAdded, setIsadded] = useState(false);
-  const [error, setError] = useState("");
+  const [name, setName] = useState("")
+  const [date, setDate] = useState("")
+  const [opens, setOpens] = useState("")
+  const [closes, setCloses] = useState("")
+  const [location, setLocation] = useState("")
+  const [description, setDescription] = useState("")
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isAdded, setIsadded] = useState(false)
+  const [error, setError] = useState("")
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const accessToken = getCookie("accessToken");
+  const accessToken = getCookie("accessToken")
 
   const onNameChange = (event) => {
-    setName(event.target.value);
-  };
+    setName(event.target.value)
+  }
   const onDateChange = (event) => {
-    setDate(event.target.value);
-  };
+    setDate(event.target.value)
+  }
   const onOpensChange = (event) => {
-    setOpens(event.target.value);
-  };
+    setOpens(event.target.value)
+  }
   const onClosesChange = (event) => {
-    setCloses(event.target.value);
-  };
+    setCloses(event.target.value)
+  }
   const onLocationChange = (event) => {
-    setLocation(event.target.value);
-  };
+    setLocation(event.target.value)
+  }
   const onDescriptionChange = (event) => {
-    setDescription(event.target.value);
-  };
+    setDescription(event.target.value)
+  }
 
   const onFormSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     const options = {
       method: "POST",
@@ -55,30 +55,30 @@ export const Addmarket = () => {
         location: location,
         description: description,
       }),
-    };
+    }
     // fetch("http://localhost:8080/markets", options)
     fetch(API_URL("markets"), options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          getCookie("accessToken", data.accessToken);
-          setIsadded(true);
+          getCookie("accessToken", data.accessToken)
+          setIsadded(true)
         } else {
-          setError(data.response);
+          setError(data.response)
         }
-      });
-  };
+      })
+  }
 
   const updateFromMap = (selectedLocation) => {
     // changes please
-    console.log({ locationFromMap: selectedLocation });
+    console.log({ locationFromMap: selectedLocation })
     // handle me
     // sets location to the set location
-    setLocation(selectedLocation);
-  };
+    setLocation(selectedLocation)
+  }
 
   if (isAdded) {
-    return <Navigate to="/confirmedadd" />;
+    return <Navigate to="/confirmedadd" />
   }
 
   return (
@@ -125,5 +125,5 @@ export const Addmarket = () => {
         </button>
       </form>
     </article>
-  );
-};
+  )
+}

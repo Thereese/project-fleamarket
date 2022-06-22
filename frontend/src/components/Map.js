@@ -1,4 +1,4 @@
-import { React, useCallback, useState, useRef } from "react";
+import React, { useCallback, useState, useRef } from "react";
 import {
   GoogleMap,
   Marker,
@@ -9,7 +9,7 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
-import mapStyles from "mapStyles";
+import mapStyles from "../mapStyles";
 import {
   Combobox,
   ComboboxInput,

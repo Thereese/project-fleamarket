@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { setCookie } from "utils/cookieHelper";
-import Sidebar from "./Sidebar";
+import React from "react"
+import { Link } from "react-router-dom"
+import { setCookie } from "../utils/cookieHelper"
+import Sidebar from "./Sidebar"
 
 export const Navbar = () => {
   return (
@@ -25,5 +25,5 @@ export const Navbar = () => {
         </li>
       </ul> */}
     </header>
-  );
-};
+  )
+}

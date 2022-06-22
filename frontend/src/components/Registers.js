@@ -1,26 +1,26 @@
-import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
-import { setCookie } from "utils/cookieHelper";
-import { API_URL } from "utils/utils";
+import React, { useState } from "react"
+import { Link, Navigate } from "react-router-dom"
+import { setCookie } from "../utils/cookieHelper"
+import { API_URL } from "../utils/utils"
 
 export const Register = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [isRegistered, setIsRegistered] = useState(false);
-  const [error, setError] = useState("");
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [isRegistered, setIsRegistered] = useState(false)
+  const [error, setError] = useState("")
 
-  const accessToken = setCookie("accessToken");
+  const accessToken = setCookie("accessToken")
 
   const onUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
+    setUsername(event.target.value)
+  }
 
   const onPasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
+    setPassword(event.target.value)
+  }
 
   const onFormSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     const options = {
       method: "POST",
@@ -32,22 +32,22 @@ export const Register = () => {
         username: username,
         password: password,
       }),
-    };
+    }
     // fetch("http://localhost:8080/register", options)
     fetch(API_URL("register"), options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          setCookie("accessToken", data.accessToken);
-          setIsRegistered(true);
+          setCookie("accessToken", data.accessToken)
+          setIsRegistered(true)
         } else {
-          setError(data.response);
+          setError(data.response)
         }
-      });
-  };
+      })
+  }
 
   if (isRegistered) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/login" />
   }
 
   return (
@@ -69,5 +69,5 @@ export const Register = () => {
         </p>
       </form>
     </>
-  );
-};
+  )
+}

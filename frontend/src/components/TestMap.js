@@ -1,65 +1,59 @@
 //USING https://www.youtube.com/watch?v=BL2XVTqz9Ek
-
-import {
-  React,
-  useCallback,
-  useState,
-  useRef,
-  useMemo,
-  useEffect,
-} from "react";
+import React, { useState, useEffect } from "react"
 import {
   GoogleMap,
   Marker,
   useLoadScript,
   InfoWindow,
-} from "@react-google-maps/api";
+} from "@react-google-maps/api"
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
-} from "use-places-autocomplete";
-import mapStyles from "mapStyles";
+} from "use-places-autocomplete"
+import mapStyles from "../mapStyles"
 import {
   Combobox,
   ComboboxInput,
   ComboboxList,
   ComboboxOption,
   ComboboxPopover,
-} from "@reach/combobox";
-import "@reach/combobox/styles.css";
+} from "@reach/combobox"
+import "@reach/combobox/styles.css"
 
-const center = { lat: 59.3014, lng: 18.0061 };
+const center = { lat: 59.3014, lng: 18.0061 }
 
-const libraries = ["places"];
-const mapContainerStyle = { width: "100%", height: "300px" };
+const libraries = ["places"]
+const mapContainerStyle = { width: "100%", height: "300px" }
 
 const options = {
   styles: mapStyles,
   disableDefaultUI: true,
   zoomControl: true,
   fullscreenControl: true,
-};
+}
 
 export const TestMap = ({ updateFromMap }) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
-  });
+  })
 
-  if (!isLoaded) return <div>Loading..</div>;
-  return <Map updateFromMap={updateFromMap} />;
-};
+  if (!isLoaded) {
+    return <div>Loading..</div>
+  }
+  return <Map updateFromMap={updateFromMap} />
+}
 
 const Map = ({ updateFromMap }) => {
-  const center = { lat: 59.3014, lng: 18.0061 };
-  const [selected, setSelected] = useState(null);
+  const center = { lat: 59.3014, lng: 18.0061 }
+  const [selected, setSelected] = useState(null)
 
   // run me when selected change
   useEffect(() => {
     // run function from prop
     // this function comes from TestMap
-    updateFromMap(selected);
-  }, [selected]);
+    updateFromMap(selected)
+  }, [selected])
 
   return (
     <>
@@ -74,8 +68,8 @@ const Map = ({ updateFromMap }) => {
         {selected && <Marker position={selected} />}
       </GoogleMap>
     </>
-  );
-};
+  )
+}
 
 const PlacesAutocomplete = ({ setSelected }) => {
   const {
@@ -84,16 +78,16 @@ const PlacesAutocomplete = ({ setSelected }) => {
     setValue,
     suggestions: { status, data },
     clearSuggestions,
-  } = usePlacesAutocomplete();
+  } = usePlacesAutocomplete()
 
   const handleSelect = async (address) => {
-    setValue(address, false);
-    clearSuggestions();
+    setValue(address, false)
+    clearSuggestions()
 
-    const results = await getGeocode({ address });
-    const { lat, lng } = await getLatLng(results[0]);
-    setSelected({ lat, lng });
-  };
+    const results = await getGeocode({ address })
+    const { lat, lng } = await getLatLng(results[0])
+    setSelected({ lat, lng })
+  }
 
   return (
     <Combobox onSelect={handleSelect}>
@@ -107,11 +101,12 @@ const PlacesAutocomplete = ({ setSelected }) => {
       <ComboboxPopover>
         <ComboboxList>
           {status === "OK" &&
-            data.map(({ place_id, description }) => (
-              <ComboboxOption key={place_id} value={description} />
-            ))}
+            data.map(({ place_id, description }) => {
+              console.log(place_id)
+              return <ComboboxOption key={1} value={description} />
+            })}
         </ComboboxList>
       </ComboboxPopover>
     </Combobox>
-  );
-};
+  )
+}
