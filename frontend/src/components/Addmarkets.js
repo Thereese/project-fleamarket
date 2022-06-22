@@ -37,7 +37,6 @@ export const Addmarket = () => {
   const onDescriptionChange = (event) => {
     setDescription(event.target.value);
   };
-
   const onFormSubmit = (event) => {
     event.preventDefault();
 
@@ -48,7 +47,7 @@ export const Addmarket = () => {
         Authorization: accessToken,
       },
       body: JSON.stringify({
-        name,
+        name: name,
         date: date,
         starttime: opens,
         endtime: closes,
@@ -70,7 +69,6 @@ export const Addmarket = () => {
   };
 
   const updateFromMap = (selectedLocation) => {
-    console.log({ locationFromMap: selectedLocation });
     setLocation(selectedLocation);
   };
 
@@ -79,10 +77,9 @@ export const Addmarket = () => {
   }
 
   return (
-    <article>
+    <article className="userinput-box">
       <h2>Add a flea market</h2>
       <form onSubmit={onFormSubmit}>
-        {/* <form onSubmit={onFormSubmit}> */}
         <label htmlFor="name">Name</label>
         <input type="text" id="name" value={name} onChange={onNameChange} />
         <label htmlFor="date">When does it take place?</label>
@@ -96,7 +93,6 @@ export const Addmarket = () => {
           value={closes}
           onChange={onClosesChange}
         />
-
         <label htmlFor="description">Description</label>
         <input
           type="text"
@@ -104,7 +100,6 @@ export const Addmarket = () => {
           value={description}
           onChange={onDescriptionChange}
         />
-
         <label htmlFor="location">Location</label>
         <TestMap updateFromMap={updateFromMap} />
         <Link to="/Login">

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from "./components/Navbars";
-import Sidebar from "./components/Sidebars";
 import { About } from "./components/Abouts";
 import { Startpage } from "./components/Startpages";
 import { Login } from "./components/Logins";
@@ -17,11 +16,6 @@ export const App = () => {
     <div className="page-container">
       <BrowserRouter>
         <Navbar />
-        {/* <Sidebar
-          pageWrapId={"page-wrap"}
-          outerContainerId={"outer-container"}
-        /> */}
-        {/* <div className="box" id="page-wrap"> */}
         <div className="box">
           <Routes>
             <Route path="/" element={<Startpage />} />

@@ -18,8 +18,6 @@ import usePlacesAutocomplete, {
 } from "use-places-autocomplete";
 import mapStyles from "mapStyles";
 
-// import "@reach/combobox/styles.css";
-
 const center = { lat: 59.3014, lng: 18.0061 };
 
 const libraries = ["places"];
@@ -46,12 +44,6 @@ const Map = ({ updateFromMap }) => {
   const center = { lat: 59.3014, lng: 18.0061 };
   const [selected, setSelected] = useState(null);
 
-  // run me when selected change
-  // useEffect(() => {
-  // run function from prop
-  // this function comes from TestMap
-  //   updateFromMap(selected);
-  // }, [selected]);
   const autocompleteSelect = (value) => {
     setSelected(value);
     updateFromMap(value);
@@ -59,7 +51,7 @@ const Map = ({ updateFromMap }) => {
   };
 
   return (
-    <>
+    <article>
       <div className="places-container">
         <PlacesAutocomplete setSelected={autocompleteSelect} />
       </div>
@@ -71,7 +63,7 @@ const Map = ({ updateFromMap }) => {
       >
         {selected && <Marker position={selected} />}
       </GoogleMap>
-    </>
+    </article>
   );
 };
 
@@ -85,20 +77,17 @@ const PlacesAutocomplete = ({ setSelected }) => {
   } = usePlacesAutocomplete();
 
   const handleInput = (e) => {
-    // Update the keyword of the input element
     setValue(e.target.value);
   };
 
   const handleSelect =
     ({ description }) =>
     () => {
-      //   async (address) => {
       setValue(description, false);
       clearSuggestions();
 
       getGeocode({ address: description }).then((results) => {
         const { lat, lng } = getLatLng(results[0]);
-        console.log("📍 Coordinates: ", { lat, lng });
         setSelected({ lat, lng });
       });
     };
@@ -117,18 +106,9 @@ const PlacesAutocomplete = ({ setSelected }) => {
       );
     });
   return (
-    // <div ref={ref}>
     <div>
-      <input
-        value={value}
-        onChange={handleInput}
-        disabled={!ready}
-        // placeholder="Where are you going?"
-      />
-      {/* We can use the "status" to decide whether we should display the dropdown or not */}
+      <input value={value} onChange={handleInput} disabled={!ready} />
       {status === "OK" && <ul>{renderSuggestions()}</ul>}
     </div>
   );
 };
-
-//USING https://www.youtube.com/watch?v=BL2XVTqz9Ek

@@ -1,7 +1,5 @@
 import react from "react";
-import { Link } from "react-router-dom";
-import { FiMail } from "react-icons/fi";
-import { IoLogoGithub } from "react-icons/io";
+import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io";
 
 export const Footer = () => {
   return (
@@ -9,13 +7,19 @@ export const Footer = () => {
       <div className="footer-txt">
         <p>
           Created by Therese Nyman&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <FiMail />
-          &nbsp;&nbsp;&nbsp;
+          <a
+            href="https://linkedin.com/in/therese-nyman"
+            target="_blank"
+            rel="noopener"
+            aria-label="Link to LinkedIn"
+          >
+            <IoLogoLinkedin />
+          </a>
           <a
             href="https://github.com/Thereese"
             target="_blank"
             rel="noopener"
-            aria-label="Github"
+            aria-label="Link to Github"
           >
             <IoLogoGithub />
           </a>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import image from "../img/blockimg.jpg";
 
 export const Startpage = () => {
   return (
@@ -13,23 +14,32 @@ export const Startpage = () => {
         </Link>
       </div>
       <section className="about-box">
-        <Link to="/marketlist">
-          {/* <img src="https://via.placeholder.com/80" alt="image of find" /> */}
+        <Link
+          to="/marketlist"
+          style={{
+            backgroundImage: `url(${image})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
           <h2>Find one!</h2>
-          <p>
-            Looking for flea markets? Here you can search for them, maybe you
-            have one just around the corner!
-          </p>
+          <h3>Looking for flea markets?</h3>
+          <h3>
+            Here you can search for them, maybe you have one just around the
+            corner!
+          </h3>
         </Link>
-      </section>
-      <section className="about-box">
-        <Link to="/addmarket">
-          {/* <img src="https://via.placeholder.com/80" alt="image of add" /> */}
+        <Link
+          to="/login"
+          style={{
+            backgroundImage: `url(${image})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
           <h2>Add one!</h2>
-          <p>
-            Planning to have your own flea market? Log in and add it here so
-            people can find it and visit!
-          </p>
+          <h3>Planning to have your own flea market?</h3>
+          <h3>Log in and add it so people can find it and visit!</h3>
         </Link>
       </section>
     </article>

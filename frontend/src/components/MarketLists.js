@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { API_URL } from "utils/utils";
+import image from "../img/blockimg.jpg";
 
 import { Market } from "./Markets";
-import { Map } from "./Maps";
 
-///MAPPEN
 import {
   GoogleMap,
   Marker,
@@ -72,11 +71,10 @@ export const Marketlist = () => {
   }
 
   return (
-    <section>
+    <section className="userinput-box">
       <h2>Find market</h2>
       <div className="mapbox">
         <Search panTo={panTo} />
-        {/* <Locate panTo={panTo} /> */}
         <GoogleMap
           center={center}
           zoom={15}
@@ -109,17 +107,16 @@ export const Marketlist = () => {
                 >
                   {isSelected ? (
                     <InfoWindow
-                      // position={{ lat: selected.lat, lng: selected.lng }}
                       onCloseClick={() => {
                         setSelected(null);
                       }}
                     >
                       <div className="info-window">
-                        <h2>{name}</h2>
-                        <h3>{date}</h3>
-                        <h3>{starttime}</h3>
-                        <h3>{endtime}</h3>
-                        <h3>{description}</h3>
+                        <h3>{name}</h3>
+                        <p>When? {date}</p>
+                        <p>What time? {starttime}</p>
+                        <p>Ends at: {endtime}</p>
+                        <p>{description}</p>
                       </div>
                     </InfoWindow>
                   ) : null}
@@ -130,7 +127,7 @@ export const Marketlist = () => {
         </GoogleMap>
       </div>
       <div>
-        <Link to="/addmarket">
+        <Link to="/login">
           <button className="buttonstyle">ADD NEW MARKET</button>
         </Link>
       </div>
@@ -209,7 +206,6 @@ const Search = ({ panTo }) => {
     });
 
   return (
-    // <div ref={ref}>
     <div>
       <input
         value={value}

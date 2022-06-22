@@ -1,14 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import image from "../img/blockimg.jpg";
 
 export const ConfirmedAdd = () => {
   return (
-    <>
-      <h2>Your flea market has beed added!</h2>
-      <h3>Good luck and have fun!</h3>
+    <article>
+      <div
+        className="addmarket-box"
+        style={{
+          backgroundImage: `url(${image})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <h2>Your flea market has beed added!</h2>
+        <h3>Good luck and have fun!</h3>
+      </div>
       <Link to="/marketlist">
-        <button className="buttonstyle">Find more markets</button>
+        <button className="buttonstyle">FIND MORE MARKETS</button>
       </Link>
-    </>
+      <Link to="/logout">
+        <button className="buttonstyle">LOG OUT</button>
+      </Link>
+    </article>
   );
 };

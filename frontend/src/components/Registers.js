@@ -14,11 +14,9 @@ export const Register = () => {
   const onUsernameChange = (event) => {
     setUsername(event.target.value);
   };
-
   const onPasswordChange = (event) => {
     setPassword(event.target.value);
   };
-
   const onFormSubmit = (event) => {
     event.preventDefault();
 
@@ -51,23 +49,29 @@ export const Register = () => {
   }
 
   return (
-    <>
+    <article className="userinput-box">
       <h2>Register</h2>
       <form onSubmit={onFormSubmit}>
         <label htmlFor="username">Username</label>
         <input type="text" onChange={onUsernameChange} value={username}></input>
         <label htmlFor="password">Password</label>
-        <input type="text" onChange={onPasswordChange} value={password}></input>
-        {/* <label htmlFor="confirm password">Confirm password</label>
-        <input type="text"></input> */}
-        <div>{error}</div>
+        <input
+          type="password"
+          className="password"
+          onChange={onPasswordChange}
+          value={password}
+        ></input>
+        <div className="error">{error}</div>
         <button type="submit" className="buttonstyle">
           REGISTER
         </button>
-        <p>
-          Already have an account? <Link to="/login">Login here!</Link>
-        </p>
+        <div className="user-link">
+          <p>Already have an account?</p>
+          <p>
+            <Link to="/login">Login here!</Link>
+          </p>
+        </div>
       </form>
-    </>
+    </article>
   );
 };

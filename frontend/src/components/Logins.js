@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate, Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { setCookie } from "utils/cookieHelper";
 import { API_URL } from "utils/utils";
 
@@ -9,16 +9,12 @@ export const Login = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [error, setError] = useState("");
 
-  // const navigate = useNavigate();
-
   const onUsernameChange = (event) => {
     setUsername(event.target.value);
   };
-
   const onPasswordChange = (event) => {
     setPassword(event.target.value);
   };
-
   const onFormSubmit = (event) => {
     event.preventDefault();
 
@@ -46,25 +42,33 @@ export const Login = () => {
   };
 
   if (isLoggedIn) {
-    return <Navigate to="/marketlist" />;
+    return <Navigate to="/addmarket" />;
   }
 
   return (
-    <article>
+    <article className="userinput-box">
       <h2>Sign in</h2>
       <form onSubmit={onFormSubmit}>
         <label htmlFor="username">Username</label>
         <input type="text" onChange={onUsernameChange} value={username}></input>
         <label htmlFor="password">Password</label>
-        <input type="text" onChange={onPasswordChange} value={password}></input>
+        <input
+          type="password"
+          className="password"
+          onChange={onPasswordChange}
+          value={password}
+        ></input>
         <div className="error">{error}</div>
         <button type="submit" className="buttonstyle">
           SIGN IN
         </button>
       </form>
-      <p>
-        Don´t have an account? <Link to="/register">Register here!</Link>
-      </p>
+      <div className="user-link">
+        <p>Don´t have an account?</p>
+        <p>
+          <Link to="/register">Register here!</Link>
+        </p>
+      </div>
     </article>
   );
 };
