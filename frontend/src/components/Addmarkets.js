@@ -80,7 +80,7 @@ export const Addmarket = () => {
 
   return (
     <article>
-      <h1>Add a flea market</h1>
+      <h2>Add a flea market</h2>
       <form onSubmit={onFormSubmit}>
         {/* <form onSubmit={onFormSubmit}> */}
         <label htmlFor="name">Name</label>

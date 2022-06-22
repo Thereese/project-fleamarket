@@ -52,7 +52,7 @@ export const Register = () => {
 
   return (
     <>
-      <h1>Register</h1>
+      <h2>Register</h2>
       <form onSubmit={onFormSubmit}>
         <label htmlFor="username">Username</label>
         <input type="text" onChange={onUsernameChange} value={username}></input>

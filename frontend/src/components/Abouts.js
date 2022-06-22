@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const About = () => {
   return (
     <>
-      <h1>About "Finding Fleamarkets"</h1>
+      <h2>About "Finding Fleamarkets"</h2>
       <p>
         More and more people understand the importance of living in a more
         sustainable way. Also what responsibility we have to take care of this

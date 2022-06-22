@@ -51,8 +51,8 @@ export const Login = () => {
 
   return (
     <article>
-      <h1>Sign in</h1>
-      <form onSubmit={onFormSubmit}>
+      <h2>Sign in</h2>
+      <form>
         <label htmlFor="username">Username</label>
         <input type="text" onChange={onUsernameChange} value={username}></input>
         <label htmlFor="password">Password</label>
