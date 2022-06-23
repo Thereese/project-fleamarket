@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { API_URL } from "utils/utils";
-import image from "../img/blockimg.jpg";
-
-import { Market } from "./Markets";
 
 import {
   GoogleMap,
@@ -39,7 +36,6 @@ export const Marketlist = () => {
     mapRef.current = map;
   }, []);
 
-  console.log(markets, "markets i state");
   useEffect(() => {
     const options = {
       method: "GET",
@@ -175,19 +171,16 @@ const Search = ({ panTo }) => {
   });
 
   const handleInput = (e) => {
-    // Update the keyword of the input element
     setValue(e.target.value);
   };
 
   const handleSelect = (suggestion) => () => {
-    //   async (address) => {
     setValue(suggestion.description);
     clearSuggestions();
 
     getGeocode({ address: suggestion.description }).then((results) => {
       const { lat, lng } = getLatLng(results[0]);
       panTo({ lat, lng });
-      console.log("📍 Coordinates: ", { lat, lng });
     });
   };
 

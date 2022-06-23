@@ -7,7 +7,7 @@ export const Startpage = () => {
     <article className="content-box">
       <div className="btn-box">
         <Link to="/login" className="login-btn">
-          <button className="firstpage-btn">LOG IN</button>
+          <button className="firstpage-btn">SIGN IN</button>
         </Link>
         <Link to="/register" className="login-btn">
           <button className="firstpage-btn">REGISTER</button>

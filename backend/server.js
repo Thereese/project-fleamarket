@@ -150,7 +150,7 @@ const authenticateUser = async (req, res, next) => {
 };
 
 //POST A NEW FLEAMARKET//USER NEEDS TO BE LOGGED IN
-// app.post("/markets", authenticateUser);
+
 app.post("/markets", authenticateUser, async (req, res) => {
   const { name, date, starttime, endtime, location, description } = req.body;
   try {
