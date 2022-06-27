@@ -160,8 +160,9 @@ const Search = ({ panTo }) => {
   const {
     ready,
     value,
-    suggestions: { status, data },
+
     setValue,
+    suggestions: { status, data },
     clearSuggestions,
   } = usePlacesAutocomplete({
     requestOptions: {
@@ -175,7 +176,7 @@ const Search = ({ panTo }) => {
   };
 
   const handleSelect = (suggestion) => () => {
-    setValue(suggestion.description);
+    setValue(suggestion.description, false);
     clearSuggestions();
 
     getGeocode({ address: suggestion.description }).then((results) => {
