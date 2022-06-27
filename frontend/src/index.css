@@ -61,7 +61,6 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   margin-top: 2rem;
   gap: 1rem;
-  /* background-image: url("blockimg.jpg"); */
 }
 
 .addmarket-box {
@@ -115,7 +114,6 @@ header {
   padding: 20px;
   font-family: 'Grand Hotel';
   font-size: 1.5rem;
-  /* word-spacing: 10px; */
 }
 
 header a {
@@ -254,16 +252,27 @@ button {
   position: absolute;
   top: 4rem;
   right: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: none;
   border: none;
   z-index: 10;
   padding: 0;
-  margin: 10px;
+  margin: 0 10px 10px 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.locate svg {
+  width: 35px;
+  height: 35px;
+  color: var(--blue)
 }
 
 /* TESTMAP */
 
-.combobox-input {
+/* .combobox-input {
  width: 100%;
  padding: 0.5rem;
 }
@@ -273,7 +282,7 @@ button {
   color: red;
   position: absolute;
   z-index: 12;
-}
+} */
 
 
 .info-window {
@@ -342,21 +351,23 @@ a svg {
 
 /* FOR HEADER TO CHANGE ON MINI */
 @media (max-width: 400px){
-
+  header {
+    font-size: 1.3rem;
+  }
+  
+  ul {
+    font-size: 12px;
+  }
 }
 
 /* FOR TABLET */
 @media screen and (min-width: 768px) {
   header {
-    padding: 20px;
-    font-family: 'Grand Hotel';
     font-size: 2rem;
   }
   
   ul {
-    list-style: none;
     font-size: 18px;
-    padding: 0;
   }
 
   .about-box {
@@ -366,23 +377,5 @@ a svg {
 
 /* FOR DESKTOP */
 @media screen and (min-width: 992px) {
-
-  header {
-    padding: 20px;
-    font-family: 'Grand Hotel';
-    font-size: 2rem;
-  }
-  
-  header a {
-    font-family: 'Lato', sans-serif;
-    text-decoration: none;
-    color: var(--blue)
-  }
-  
-  ul {
-    list-style: none;
-    font-size: 18px;
-    padding: 0;
-  }
 }
 }

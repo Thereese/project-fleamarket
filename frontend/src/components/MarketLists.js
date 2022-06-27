@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { API_URL } from "utils/utils";
+import { RiCompassDiscoverFill } from "react-icons/ri";
 
 import {
   GoogleMap,
@@ -90,6 +91,7 @@ export const Marketlist = () => {
               description,
             }) => {
               const isSelected = selected === _id;
+              console.log(location, "adressen");
               return (
                 <Marker
                   key={_id}
@@ -109,6 +111,7 @@ export const Marketlist = () => {
                     >
                       <div className="info-window">
                         <h3>{name}</h3>
+                        {/* <p>{location}</p> */}
                         <p>When? {date}</p>
                         <p>What time? {starttime}</p>
                         <p>Ends at: {endtime}</p>
@@ -127,6 +130,7 @@ export const Marketlist = () => {
           <button className="buttonstyle">ADD NEW MARKET</button>
         </Link>
       </div>
+
       {/* <article>
         {markets.map((market) => (
           <Market key={market._id} market={market} />
@@ -139,6 +143,7 @@ const Locate = ({ panTo }) => {
   return (
     <button
       className="locate"
+      aria-labelledby="button-label"
       onClick={() => {
         navigator.geolocation.getCurrentPosition(
           (position) => {
@@ -151,7 +156,10 @@ const Locate = ({ panTo }) => {
         );
       }}
     >
-      <img src="https://via.placeholder.com/40" alt="compass - locate me" />
+      <span id="button-label" hidden>
+        Compass - locate me
+      </span>
+      <RiCompassDiscoverFill aria-hidden="true" focusable="false" />
     </button>
   );
 };
