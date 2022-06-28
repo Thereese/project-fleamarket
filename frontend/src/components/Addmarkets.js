@@ -100,9 +100,9 @@ export const Addmarket = () => {
           value={description}
           onChange={onDescriptionChange}
         />
-        <label htmlFor="location">Location</label>
+        {/* <label htmlFor="location">Location</label> */}
         <TestMap updateFromMap={updateFromMap} />
-        <Link to="/Login">
+        <Link to="/Login" aria-label="link to loginpage">
           <p>{error}</p>
         </Link>
         <button type="submit" className="buttonstyle" onClick={onFormSubmit}>

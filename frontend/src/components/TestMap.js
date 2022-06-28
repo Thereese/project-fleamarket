@@ -47,7 +47,6 @@ const Map = ({ updateFromMap }) => {
   const autocompleteSelect = (value) => {
     setSelected(value);
     updateFromMap(value);
-    console.log(value);
   };
 
   return (
@@ -107,7 +106,13 @@ const PlacesAutocomplete = ({ setSelected }) => {
     });
   return (
     <div>
-      <input value={value} onChange={handleInput} disabled={!ready} />
+      <label htmlFor="location">Location</label>
+      <input
+        value={value}
+        id="location"
+        onChange={handleInput}
+        disabled={!ready}
+      />
       {status === "OK" && <ul>{renderSuggestions()}</ul>}
     </div>
   );

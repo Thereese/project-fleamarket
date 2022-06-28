@@ -67,6 +67,8 @@ export const Marketlist = () => {
     return "Loading Maps";
   }
 
+  const today = new Date();
+
   return (
     <section className="userinput-box">
       <h2>Find market</h2>
@@ -80,6 +82,7 @@ export const Marketlist = () => {
           onLoad={onMapLoad}
         >
           <Locate panTo={panTo} />
+
           {markets.map(
             ({
               _id,
@@ -91,35 +94,39 @@ export const Marketlist = () => {
               description,
             }) => {
               const isSelected = selected === _id;
-              console.log(location, "adressen");
+              const filtered = new Date(date) >= new Date();
+
               return (
-                <Marker
-                  key={_id}
-                  position={{
-                    lat: location.lat,
-                    lng: location.lng,
-                  }}
-                  onClick={() => {
-                    setSelected(_id);
-                  }}
-                >
-                  {isSelected ? (
-                    <InfoWindow
-                      onCloseClick={() => {
-                        setSelected(null);
+                <article key={_id}>
+                  {filtered ? (
+                    <Marker
+                      key={_id}
+                      position={{
+                        lat: location.lat,
+                        lng: location.lng,
+                      }}
+                      onClick={() => {
+                        setSelected(_id);
                       }}
                     >
-                      <div className="info-window">
-                        <h3>{name}</h3>
-                        {/* <p>{location}</p> */}
-                        <p>When? {date}</p>
-                        <p>What time? {starttime}</p>
-                        <p>Ends at: {endtime}</p>
-                        <p>{description}</p>
-                      </div>
-                    </InfoWindow>
+                      {isSelected ? (
+                        <InfoWindow
+                          onCloseClick={() => {
+                            setSelected(null);
+                          }}
+                        >
+                          <div className="info-window">
+                            <h3>{name}</h3>
+                            <p>When? {date}</p>
+                            <p>What time? {starttime}</p>
+                            <p>Ends at: {endtime}</p>
+                            <p>{description}</p>
+                          </div>
+                        </InfoWindow>
+                      ) : null}
+                    </Marker>
                   ) : null}
-                </Marker>
+                </article>
               );
             }
           )}
@@ -210,12 +217,12 @@ const Search = ({ panTo }) => {
   return (
     <div>
       <input
+        aria-label="Search with address"
         value={value}
         onChange={handleInput}
         disabled={!ready}
         placeholder="Search with address"
       />
-      {/* We can use the "status" to decide whether we should display the dropdown or not */}
       {status === "OK" && <ul>{renderSuggestions()}</ul>}
     </div>
   );
