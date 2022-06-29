@@ -349,8 +349,8 @@ a svg {
     background-color: var(--beige);
 }
 
-#date {
-  width: 100%;
+#opens {
+  width: 200px;
 }
 
 /* FOR HEADER TO CHANGE ON MINI */
