@@ -1,13 +1,14 @@
-# Project Auth API
+# Final Project - Find a Fleamarket
 
-Replace this readme with your own information about your project.
+My final project on the Technigo bootcamp. A React-webapp for users to search for fleamarkets and to add their own.
+I used Google Maps Api for the map, the library Places and Place Autocomplete for the searchbox.
+The backend is built with Express and MongoDB.
+To be able to add a flea market you need to be signed in, for that I used authentication and stored the token in cookies.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+To start the project:
+frontend - npm start
+backend - npm run dev
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://find-a-fleamarket.netlify.app/
