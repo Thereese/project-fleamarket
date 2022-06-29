@@ -150,7 +150,6 @@ const authenticateUser = async (req, res, next) => {
 };
 
 //POST A NEW FLEAMARKET//USER NEEDS TO BE LOGGED IN
-
 app.post("/markets", authenticateUser, async (req, res) => {
   const { name, date, starttime, endtime, location, description } = req.body;
   try {
@@ -188,19 +187,15 @@ app.post("/markets", authenticateUser, async (req, res) => {
   }
 });
 
-//RETURN ALL FLEAMARKETS, SORTED IN ASCENDING ORDER, NOT LOGGED IN MODE//CHECK
-//TRY TO REMOVE PASSED DATES FROM LIST//NOT SOLVED
 app.get("/markets", async (req, res) => {
   const markets = await Market.find().sort({ date: 1 });
   res.json(markets);
 });
 
-// Start defining your routes here
 app.get("/", (req, res) => {
   res.send(listEndpoints(app));
 });
 
-// Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });

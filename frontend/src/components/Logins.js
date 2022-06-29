@@ -50,10 +50,16 @@ export const Login = () => {
       <h2>Sign in</h2>
       <form onSubmit={onFormSubmit}>
         <label htmlFor="username">Username</label>
-        <input type="text" onChange={onUsernameChange} value={username}></input>
+        <input
+          type="text"
+          id="username"
+          onChange={onUsernameChange}
+          value={username}
+        ></input>
         <label htmlFor="password">Password</label>
         <input
           type="password"
+          id="password"
           className="password"
           onChange={onPasswordChange}
           value={password}

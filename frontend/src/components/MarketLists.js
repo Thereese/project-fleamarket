@@ -137,12 +137,6 @@ export const Marketlist = () => {
           <button className="buttonstyle">ADD NEW MARKET</button>
         </Link>
       </div>
-
-      {/* <article>
-        {markets.map((market) => (
-          <Market key={market._id} market={market} />
-        ))}
-      </article> */}
     </section>
   );
 };
@@ -175,7 +169,6 @@ const Search = ({ panTo }) => {
   const {
     ready,
     value,
-
     setValue,
     suggestions: { status, data },
     clearSuggestions,

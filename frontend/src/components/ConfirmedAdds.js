@@ -14,14 +14,16 @@ export const ConfirmedAdd = () => {
         }}
       >
         <h2>Your flea market has beed added!</h2>
-        <h3>Good luck and have fun!</h3>
+        <h3>Good luck! And have fun!</h3>
       </div>
-      <Link to="/marketlist">
-        <button className="buttonstyle">FIND MORE MARKETS</button>
-      </Link>
-      <Link to="/logout">
-        <button className="buttonstyle">LOG OUT</button>
-      </Link>
+      <div className="addmarket-links">
+        <Link to="/marketlist">
+          <button className="firstpage-btn">FIND MORE MARKETS</button>
+        </Link>
+        <Link to="/logout">
+          <button className="firstpage-btn">LOG OUT</button>
+        </Link>
+      </div>
     </article>
   );
 };

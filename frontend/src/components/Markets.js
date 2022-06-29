@@ -1,5 +1,6 @@
 import React from "react";
 
+//THIS COMPONENT IS TO BE USED WHEN BUILDING MORE ON THE APP//
 export const Market = ({ market }) => {
   return (
     <article className="market-box">

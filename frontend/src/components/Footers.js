@@ -1,4 +1,4 @@
-import react from "react";
+// import react from "react";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io";
 
 export const Footer = () => {

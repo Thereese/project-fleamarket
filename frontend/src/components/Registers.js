@@ -53,9 +53,15 @@ export const Register = () => {
       <h2>Register</h2>
       <form onSubmit={onFormSubmit}>
         <label htmlFor="username">Username</label>
-        <input type="text" onChange={onUsernameChange} value={username}></input>
+        <input
+          type="text"
+          id="username"
+          onChange={onUsernameChange}
+          value={username}
+        ></input>
         <label htmlFor="password">Password</label>
         <input
+          id="password"
           type="password"
           className="password"
           onChange={onPasswordChange}
