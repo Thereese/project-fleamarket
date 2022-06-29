@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Navigate, Link } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import { getCookie } from "utils/cookieHelper";
 import { TestMap } from "./TestMap";
 import { API_URL } from "utils/utils";
@@ -11,11 +11,8 @@ export const Addmarket = () => {
   const [closes, setCloses] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdded, setIsadded] = useState(false);
   const [error, setError] = useState("");
-
-  const navigate = useNavigate();
 
   const accessToken = getCookie("accessToken");
 
@@ -30,9 +27,6 @@ export const Addmarket = () => {
   };
   const onClosesChange = (event) => {
     setCloses(event.target.value);
-  };
-  const onLocationChange = (event) => {
-    setLocation(event.target.value);
   };
   const onDescriptionChange = (event) => {
     setDescription(event.target.value);
@@ -100,7 +94,6 @@ export const Addmarket = () => {
           value={description}
           onChange={onDescriptionChange}
         />
-        {/* <label htmlFor="location">Location</label> */}
         <TestMap updateFromMap={updateFromMap} />
         <Link to="/Login" aria-label="link to loginpage">
           <p>{error}</p>

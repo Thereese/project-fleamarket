@@ -330,6 +330,9 @@ a svg {
   margin-left: auto;
   margin-right: auto;
 }
+.userinput-box {
+  width: 100%;
+}
 
 .userinput-box h2 {
   margin-bottom: 2rem;

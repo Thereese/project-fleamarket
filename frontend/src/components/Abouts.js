@@ -12,7 +12,7 @@ export const About = () => {
         backgroundSize: "cover",
       }}
     >
-      <h2>About "Finding Fleamarkets"</h2>
+      <h2>About "Find a Fleamarket"</h2>
       <p>
         More and more people understand not only the importance of living in a
         more sustainable way but also what responsibility we have to take care
