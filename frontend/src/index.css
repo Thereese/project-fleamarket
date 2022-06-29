@@ -349,6 +349,10 @@ a svg {
     background-color: var(--beige);
 }
 
+#date {
+  width: 100%;
+}
+
 /* FOR HEADER TO CHANGE ON MINI */
 @media (max-width: 400px){
   header {
